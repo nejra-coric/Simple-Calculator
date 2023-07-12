@@ -43,7 +43,8 @@ class MainActivity : AppCompatActivity() {
             binding.button0, binding.button1, binding.button2, binding.button3,
             binding.button4, binding.button5, binding.button6, binding.button7,
             binding.button8, binding.button9, binding.buttonDivide, binding.buttonDot,
-            binding.buttonEqual, binding.buttonMinus, binding.buttonPlus, binding.buttonMultiply
+            binding.buttonEqual, binding.buttonMinus, binding.buttonPlus, binding.buttonMultiply,
+            binding.buttonClear
         )
 
         buttons.forEach { button ->
@@ -62,6 +63,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 buttonText == "=" -> {
                     calculatorViewModel.onEqualButtonClick()
+                }
+                buttonText == "CLEAR" -> {
+                    calculatorViewModel.onClearButtonClick()
                 }
                 else -> {
                     calculatorViewModel.onOperatorButtonClick(buttonText)
