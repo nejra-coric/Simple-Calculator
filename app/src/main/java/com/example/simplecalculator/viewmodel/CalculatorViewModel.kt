@@ -3,6 +3,9 @@ package com.example.simplecalculator.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.simplecalculator.utils.MathUtils
+
+
 
 class CalculatorViewModel: ViewModel() {
 
@@ -48,13 +51,29 @@ class CalculatorViewModel: ViewModel() {
         val value2 = _inputValue2.value?.toDoubleOrNull() ?: return
 
         val result = when (_operator.value) {
-            "+" -> value1 + value2
-            "-" -> value1 - value2
-            "×" -> value1 * value2
-            "÷" -> if (value2 != 0.0) value1 / value2 else Double.NaN
+            "+" -> performAddition(value1,value2)
+            "-" -> performSubtraction(value1, value2)
+            "×" -> performMultiplication(value1,value2)
+            "÷" -> performDivision(value1, value2)
             else -> Double.NaN
         }
 
         _result.value = result.toString()
+    }
+
+    private fun performAddition(value1: Double, value2: Double): Double {
+        return MathUtils.add(value1, value2)
+    }
+
+    private fun performSubtraction(value1: Double, value2: Double): Double {
+        return MathUtils.subtract(value1, value2)
+    }
+
+    private fun performMultiplication(value1: Double, value2: Double): Double {
+        return MathUtils.multiply(value1, value2)
+    }
+
+    private fun performDivision(value1: Double, value2: Double): Double {
+        return MathUtils.divide(value1, value2)
     }
 }
