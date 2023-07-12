@@ -5,8 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.simplecalculator.utils.MathUtils
 
-
-
 class CalculatorViewModel: ViewModel() {
 
     private val _inputValue1 = MutableLiveData<String>()
@@ -25,6 +23,13 @@ class CalculatorViewModel: ViewModel() {
 
     val result: LiveData<String>
         get() = _result
+
+    fun onClearButtonClick() {
+        _inputValue1.value = ""
+        _inputValue2.value = ""
+        _operator.value = ""
+        _result.value = ""
+    }
 
     fun onDigitButtonClick(digit: Int) {
         // Check if the operator is set

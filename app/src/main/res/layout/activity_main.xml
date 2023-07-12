@@ -21,6 +21,22 @@
             android:gravity="end"
             android:text="0" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <Button
+            android:id="@+id/buttonClear"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="CLEAR"
+            android:background="@drawable/rectangle_button_shape"/>
+    </LinearLayout>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -150,7 +166,7 @@
                 android:layout_height="80dp"
                 android:layout_weight="1"
                 android:text="0"
-                android:background="@drawable/circular_button_shape"/>
+                android:background="@drawable/rectangle_button_shape"/>
 
             <Button
                 android:id="@+id/buttonDot"
